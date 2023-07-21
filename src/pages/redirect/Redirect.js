@@ -11,7 +11,9 @@ function Redirect() {
 
     useEffect(() => {
         if (!isPageOpened) {
-            fetch(env['base-api'] + '/getUrlFromSurl?surl=' + window.location.href)
+            fetch(env['base-api'] + '/getUrlFromSurl?surl=' + window.location.href, {
+                'method': 'POST'
+            })
                 .then(data => {
                     return data.json();
                 }).then(urlData => {
